@@ -1,0 +1,594 @@
+syntax = "proto3";
+
+message ClientPortfolioEvent {
+   string Account = 1;
+   repeated ClientPortfolioEventItem ClientPortfoliosOpen = 2;
+   repeated ClientPortfolioEventItem ClientPortfoliosClose = 3;
+}
+message ClientPortfolioEventItem {
+   string MartketID = 1;
+   string InstrumentID = 2;
+   int64 LongQty = 3;
+   int64 ShortQty = 4;
+   double Net = 5;
+   double BidAvgPrice = 6;
+   double AskAvgPrice = 7;
+   double TradePrice = 8;
+   double MarketPrice = 9;
+   double FloatingPL = 10;
+   double TradingPL = 11;
+}
+message EventBase {
+   bytes Data = 1;
+   string UniqueID = 2;
+   string IPAddress = 4;
+   string Prefix = 5;
+   oneof subtype {
+      NotifyEvent NotifyEvent = 12;
+   }
+}
+message NewOrder {
+}
+message NotifyEvent {
+   int32 NotifyID = 1;
+   oneof subtype {
+      OrderEvent OrderEvent = 10;
+      OrderError OrderError = 11;
+      ClientPortfolioEvent ClientPortfolioEvent = 12;
+   }
+}
+message OrderCanceled {
+}
+message OrderError {
+   string Message = 1;
+   string ErrorCode = 2;
+}
+message OrderEvent {
+   string OrderID = 1;
+   string InstrumentID = 2;
+   string BuySell = 3;
+   string OrderType = 4;
+   double Price = 5;
+   int64 Quantity = 6;
+   string MarketID = 7;
+   string OrigOrderId = 8;
+   string Account = 9;
+   int64 CancelQty = 10;
+   int64 OsQty = 11;
+   int64 FilledQty = 12;
+   double AvgPrice = 13;
+   string Channel = 14;
+   string InputTime = 15;
+   string ModifiedTime = 16;
+   string IsForceSell = 17;
+   string IsShortSell = 18;
+   string OrderStatus = 19;
+   string RejectReason = 40;
+   string OrigRequestID = 41;
+   bool StopOrder = 42;
+   double StopPrice = 43;
+   string StopType = 44;
+   double StopStep = 45;
+   double ProfitPrice = 46;
+   oneof subtype {
+      NewOrder NewOrder = 20;
+      OrderCanceled OrderCanceled = 21;
+      OrderFullyFilled OrderFullyFilled = 22;
+      OrderPendingApproval OrderPendingApproval = 23;
+      OrderStopPreSession OrderStopPreSession = 24;
+      OrderQueued OrderQueued = 25;
+      OrderRejected OrderRejected = 26;
+      OrderPreSession OrderPreSession = 27;
+      OrderPartiallyFilled OrderPartiallyFilled = 28;
+      OrderPendingCancel OrderPendingCancel = 29;
+      OrderPendingModify OrderPendingModify = 30;
+      OrderSending OrderSending = 31;
+      OrderFullyFilledPartiallyCancelled OrderFullyFilledPartiallyCancelled = 32;
+      OrderExpired OrderExpired = 33;
+      OrderStopReady OrderStopReady = 34;
+      OrderStopSent OrderStopSent = 35;
+	  StopOrderPendingApproval StopOrderPendingApproval = 36;
+   }
+}
+message OrderExpired {
+}
+message OrderFullyFilled {
+}
+message OrderFullyFilledPartiallyCancelled {
+}
+message OrderPartiallyFilled {
+}
+message OrderPendingApproval {
+}
+message OrderPendingCancel {
+}
+message OrderPendingModify {
+}
+message OrderPreSession {
+}
+message OrderQueued {
+}
+message OrderRejected {
+}
+message OrderSending {
+}
+message OrderStopPreSession {
+}
+message OrderStopReady {
+}
+message OrderStopSent {
+}
+message StopOrderPendingApproval {
+}
+message Request {
+   bytes Data = 1;
+   map<string,string> Dic = 2;
+   string Key = 3;
+}
+
+message CancelOrderRequest {
+   string OrderID = 1;
+   string Account = 2;
+   string MarketID = 3;
+   string InstrumentID = 4;
+   string BuySell = 5;
+   string RequestID = 6;
+   string Session = 7;
+   string Pin = 8;
+}
+
+message ModifyOrderRequest {
+   string OrderID = 1;
+   double Price = 2;
+   int64 Quantity = 3;
+   string Account = 4;
+   string InstrumentID = 5;
+   string MarketID = 6;
+   string BuySell = 7;
+   string RequestID = 8;
+   string OrderType = 9;
+   string Session = 10;
+   string Pin = 11;
+}
+
+message NewOrderRequest {
+   string InstrumentID = 1;
+   string Market = 2;
+   string BuySell = 3;
+   string OrderType = 4;
+   string ChannelID = 5;
+   double Price = 6;
+   int64 Quantity = 7;
+   string Account = 8;
+   string RequestID = 9;
+   bool StopOrder = 10;
+   double StopPrice = 11;
+   string StopType = 12;
+   double StopStep = 13;
+   double LossStep = 14;
+   double ProfitStep = 15;
+   string Session = 16;
+   string Pin = 17;
+}
+
+message OrderHistoryRequest {
+   string Account = 1;
+   string StartDate = 2;
+   string EndDate = 3;
+   string Session = 4;
+}
+
+message ClientPortfolio {
+   string Account = 1;
+   string PropertyName = 2;
+}
+
+message CashHoldingRequest {
+   string AccountId = 1;
+}
+
+message StockHoldingRequest {
+   string Account = 1;
+   string PropertyName = 2;
+}
+
+message DerPositionRequest {
+   string Account = 1;
+   bool QuerySummary = 2;
+   string Session = 3;
+}
+
+message StockPositionRequest {
+   string Account = 1;
+   string Session = 2;
+}
+
+message MaxBuyQtyRequest {
+   string Account = 1;
+   string InstrumentID = 2;
+   double Price = 3;
+   string Session = 4;
+}
+
+message MaxSellQtyRequest {
+   string Account = 1;
+   string InstrumentID = 2;
+   double Price = 3;
+   string Session = 4;
+}
+
+message DerAccountBalanceRequest {
+   string Account = 1;
+   string Session = 2;
+}
+
+
+message AccountBalanceRequest {
+   string Account = 1;
+   string Session = 2;
+}
+message PPMMRAccountRequest {
+   string Account = 1;
+   string Session = 2;
+}
+message LoginRequest {
+   string Username = 1;
+   string Password = 2;
+}
+
+message CancelOrderModel {
+   string OrderID = 1;
+   string Account = 2;
+   string MarketID = 3;
+   string InstrumentID = 4;
+   string BuySell = 5;
+   string RequestID = 6;
+}
+message CancelOrderResponse {
+   string RequestID = 1;
+   CancelOrderModel RequestData = 2;
+}
+message Response_CancelOrderResponse {
+   bytes Data = 1;
+   string Message = 2;
+   int32 Status = 3;
+}
+
+message ModifyOrderModel {
+   string OrderID = 1;
+   double Price = 2;
+   int64 Quantity = 3;
+   string Account = 4;
+   string InstrumentID = 5;
+   string MarketID = 6;
+   string BuySell = 7;
+   string OrderType = 9;
+}
+message ModifyOrderResponse {
+   string RequestID = 1;
+   ModifyOrderModel RequestData = 2;
+}
+message Response_ModifyOrderResponse {
+   bytes Data = 1;
+   string Message = 2;
+   int32 Status = 3;
+}
+
+
+message NewOrderModel {
+   string InstrumentID = 1;
+   string Market = 2;
+   string BuySell = 3;
+   string OrderType = 4;
+   string ChannelID = 5;
+   double Price = 6;
+   int64 Quantity = 7;
+   string Account = 8;
+   bool StopOrder = 10;
+   double StopPrice = 11;
+   string StopType = 12;
+   double StopStep = 13;
+   double LossStep = 14;
+   double ProfitStep = 15;
+}
+message NewOrderResponse {
+   string RequestID = 1;
+   NewOrderModel RequestData = 2;
+}
+message Response_NewOrderResponse {
+   bytes Data = 1;
+   string Message = 2;
+   int32 Status = 3;
+}
+
+
+message OrderHistoryItem {
+   string UniqueID = 1;
+   string OrderID = 2;
+   string BuySell = 3;
+   double Price = 4;
+   int64 Quantity = 5;
+   int64 FilledQty = 6;
+   string OrderStatus = 7;
+   string MarketID = 8;
+   string InputTime = 9;
+   string ModifiedTime = 10;
+   string InstrumentID = 11;
+   string OrderType = 12;
+   int64 CancelQty = 13;
+   double AvgPrice = 14;
+   string IsForcesell = 15;
+   string IsShortsell = 16;
+}
+message OrderHistoryResponse {
+   repeated OrderHistoryItem OrderHistories = 1;
+   string Account = 2;
+}
+message Response_OrderHistoryResponse {
+   bytes Data = 1;
+   string Message = 2;
+   int32 Status = 3;
+}
+
+
+message ClientPortfolioResponse {
+   string Account = 1;
+   string Name = 2;
+   string Email = 3;
+   string Address = 4;
+   string MobileNo = 5;
+   string TelNo = 6;
+   string FaxNo = 7;
+   string Sex = 8;
+   string Nationality = 9;
+}
+message Response_ClientPortfolioResponse {
+   bytes Data = 1;
+   string Message = 2;
+   int32 Status = 3;
+}
+
+
+message CashHoldingResponse {
+   string Account = 1;
+   string Balance = 2;
+}
+message Response_CashHoldingResponse {
+   bytes Data = 1;
+   string Message = 2;
+   int32 Status = 3;
+}
+
+
+message Response_StockHoldingResponse {
+   bytes Data = 1;
+   string Message = 2;
+   int32 Status = 3;
+}
+message StockHoldingItem {
+   string StockID = 1;
+   string Quantity = 2;
+   string Exchange = 3;
+   string StockName = 4;
+   string Currency = 5;
+   string MarketPrice = 6;
+}
+message StockHoldingResponse {
+   string Account = 1;
+   repeated StockHoldingItem StockHoldings = 2;
+}
+
+
+message DerPositionItem {
+   string MarketID = 1;
+   string InstrumentID = 2;
+   int64 LongQty = 3;
+   int64 ShortQty = 4;
+   int64 Net = 5;
+   double BidAvgPrice = 6;
+   double AskAvgPrice = 7;
+   double TradePrice = 8;
+   double MarketPrice = 9;
+   double FloatingPL = 10;
+   double TradingPL = 11;
+}
+message DerPositionResponse {
+   string Account = 1;
+   repeated DerPositionItem _Open_position = 2;
+   repeated DerPositionItem _Close_position = 3;
+}
+message Response_DerPositionResponse {
+   bytes Data = 1;
+   string Message = 2;
+   int32 Status = 3;
+}
+
+
+message Response_StockPositionResponse {
+   bytes Data = 1;
+   string Message = 2;
+   int32 Status = 3;
+}
+message StockPositionItem {
+   string MarketID = 1;
+   string InstrumentID = 2;
+   int64 OnHand = 4;
+   int64 Block = 6;
+   int64 Bonus = 8;
+   int64 BuyT0 = 9;
+   int64 BuyT1 = 10;
+   int64 BuyT2 = 11;
+   int64 SellT0 = 12;
+   int64 SellT1 = 13;
+   int64 SellT2 = 14;
+   double AvgPrice = 15;
+   int64 Mortgage = 16;
+   int64 SellableQty = 17;
+   int64 HoldForTrade = 18;
+   int64 MarketPrice = 19;
+}
+message StockPositionResponse {
+   string Account = 1;
+   int64 TotalMarketValue = 2;
+   repeated StockPositionItem StockPositions = 3;
+}
+
+
+message MaxBuyQtyResponse {
+   string Account = 1;
+   int64 MaxBuyQty = 2;
+   string MarginRatio = 3;
+   int64 PurchasingPower = 4;
+}
+message Response_MaxBuyQtyResponse {
+   bytes Data = 1;
+   string Message = 2;
+   int32 Status = 3;
+}
+
+
+message MaxSellQtyResponse {
+   string Account = 1;
+   int64 MaxSellQty = 2;
+}
+message Response_MaxSellQtyResponse {
+   bytes Data = 1;
+   string Message = 2;
+   int32 Status = 3;
+}
+
+message AssetsItem {
+   int64 Cash = 1;
+   int64 ValidNonCash = 2;
+   int64 TotalValue = 3;
+   int64 MaxValidNonCash = 4;
+   int64 CashWithdrawable = 5;
+   int64 EE = 6;
+}
+message DerAccountBalanceResponse {
+   string Account = 1;
+   int64 AccountBalance = 2;
+   int64 Fee = 3;
+   int64 Commission = 4;
+   int64 Interest = 5;
+   int64 Loan = 6;
+   int64 DeliveryAmount = 7;
+   int64 FloatingPL = 8;
+   int64 TotalPL = 9;
+   int64 Marginable = 10;
+   int64 Depositable = 11;
+   int64 RCCall = 12;
+   int64 Withdrawable = 13;
+   int64 NonCashDrawableRCCall = 14;
+   AssetsItem InternalAssets = 15;
+   AssetsItem ExchangeAssets = 16;
+   InternalMarginItem InternalMargin = 157;
+   ExchangeMarginItem ExchangeMargin = 168;
+}
+message ExchangeMarginItem {
+   int64 MarginReq = 1;
+   double AccountRatio = 2;
+   double UsedLimitWarningLevel1 = 3;
+   double UsedLimitWarningLevel2 = 4;
+   double UsedLimitWarningLevel3 = 5;
+   int64 MarginCall = 6;
+}
+message InternalMarginItem {
+   int64 InitialMargin = 1;
+   int64 DeliveryMargin = 2;
+   int64 MarginReq = 3;
+   double AccountRatio = 4;
+   double UsedLimitWarningLevel1 = 5;
+   double UsedLimitWarningLevel2 = 6;
+   double UsedLimitWarningLevel3 = 7;
+   int64 MarginCall = 8;
+}
+message Response_DerAccountBalanceResponse {
+   bytes Data = 1;
+   string Message = 2;
+   int32 Status = 3;
+}
+
+message AccountBalanceResponse {
+   string Account = 1;
+   int64 CashBal = 2;
+   int64 CashOnHold = 3;
+   int64 SecureAmount = 4;
+   int64 Withdrawable = 5;
+   int64 ReceivingCashT1 = 6;
+   int64 ReceivingCashT2 = 7;
+   int64 MatchedBuyVolume = 8;
+   int64 MatchedSellVolume = 9;
+   int64 Debt = 10;
+   int64 UnMatchedBuyVolume = 11;
+   int64 UnMatchedSellVolume = 12;
+   int64 PaidCashT1 = 13;
+   int64 PaidCashT2 = 14;
+   int64 CIA = 15;
+   int64 PurchasingPower = 16;
+   int64 TotalAssets = 17;
+   
+}
+message Response_AccountBalanceResponse {
+   bytes Data = 1;
+   string Message = 2;
+   int32 Status = 3;
+}
+message PPMMRAccountResponse {
+   int64 CollateralAsset = 1;
+   double CallLMW = 2;
+   int64 Liability = 3;
+   int64 EEOrigin = 4;
+   double ForceLMV = 5;
+   int64 Equity = 6;
+   int64 EE = 7;
+   int64 CallMargin = 8;
+   int64 CashBalance = 9;
+   int64 PurchasingPower = 10;
+   int64 CallForcesell = 11;
+   int64 LMV = 12;
+   int64 MarginCall = 13;
+   int64 Withdrawal = 14;
+   int64 CollateralA = 15;
+   string Action = 16;
+   double MarginRatio = 17;
+   int64 Debt = 18;
+   int64 AccruedInterest = 19;
+   int64 HoldRight = 20;
+   int64 PreLoan = 21;
+   int64 Fees = 22;
+   int64 BuyUnmatch = 23;
+   int64 AP = 24;
+   int64 APT1 = 25;
+   int64 SellUnmatch = 26;
+   int64 CIA = 28;
+   int64 AR = 29;
+   int64 ART1 = 30;
+   int64 PPCredit = 31;
+   int64 CreditLimit = 32;
+   int64 TotalAssets = 33;
+   int64 MarginCallLMVSold = 34;
+   int64 LMVNonMarginable = 35;
+   int64 EECredit = 36;
+   int64 TotalEquity = 37;
+   int64 EE90 = 38;
+   int64 EE80 = 39;
+   int64 EE70 = 40;
+   int64 EE60 = 41;
+   int64 EE50 = 42;
+}
+message Response_PPMMRAccountResponse {
+   bytes Data = 1;
+   string Message = 2;
+   int32 Status = 3;
+}
+message Response_LoginResponse {
+   bytes Data = 1;
+   string Message = 2;
+   int32 Status = 3;
+}
+message LoginResponse {
+   bool IsAuthenticated = 1;
+   string SessionToken = 2;
+   int32 Failed = 3;
+}
