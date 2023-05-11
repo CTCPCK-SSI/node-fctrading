@@ -1,18 +1,17 @@
 {
   "name": "fctrading-client",
   "version": "2.3.1",
-  "description": "This is javascript client for TradingAPI",
+  "description": "This is javascript client for FastConnect TradingAPI",
   "main": "index.js",
   "author": "ssi",
   "license": "ISC",
   "dependencies": {
     "aes-js": "^3.1.2",
-    "axios": "^0.18.0",
     "google-protobuf": "^3.6.1",
     "node-rsa": "^1.0.1",
     "protobufjs": "^6.8.8",
     "randomstring": "^1.1.5",
     "xml-js": "^1.6.8",
-    "signalr-client": "0.0.14"
+    "websocket": "1.0.17"
   }
 }

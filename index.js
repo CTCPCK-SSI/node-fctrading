@@ -221,7 +221,7 @@ app.get("/newOrder", (req, res) => {
         res.send(error);
     })
 });
-app.get("/ttlNewOrder", (req, res) => {
+app.get("/derNewOrder", (req, res) => {
     var ro = {};
     Object.assign(ro, mockDeterativeData);
     Object.assign(ro, req.query);
@@ -244,7 +244,7 @@ app.get("/ttlNewOrder", (req, res) => {
         code: ro.code
     }
     rq({
-        url: client.api.NEW_ORDER,
+        url: client.api.DER_NEW_ORDER,
         method: 'post',
         headers: {
             [client.constants.AUTHORIZATION_HEADER]: client.constants.AUTHORIZATION_SCHEME + " " + access_token,
@@ -287,7 +287,7 @@ app.get("/modifyOrder", (req, res) => {
         res.send(error);
     })
 });
-app.get("/ttlmodifyOrder", (req, res) => {
+app.get("/derModifyOrder", (req, res) => {
     var ro = {};
     Object.assign(ro, mockDeterativeData);
     Object.assign(ro, req.query);
@@ -304,7 +304,7 @@ app.get("/ttlmodifyOrder", (req, res) => {
         code: ro.code
     }
     rq({
-        url: client.api.MODIFY_ORDER,
+        url: client.api.DER_MODIFY_ORDER,
         method: 'post',
         headers: {
             [client.constants.AUTHORIZATION_HEADER]: client.constants.AUTHORIZATION_SCHEME + " " + access_token,
@@ -344,7 +344,7 @@ app.get("/cancelOrder", (req, res) => {
         res.send(error);
     })
 });
-app.get("/ttlcancelOrder", (req, res) => {
+app.get("/derCancelOrder", (req, res) => {
     var ro = {};
     Object.assign(ro, mockDeterativeData);
     Object.assign(ro, req.query);
@@ -358,7 +358,7 @@ app.get("/ttlcancelOrder", (req, res) => {
         code: ro.code
     }
     rq({
-        url: client.api.CANCEL_ORDER,
+        url: client.api.DER_CANCEL_ORDER,
         method: 'post',
         headers: {
             [client.constants.AUTHORIZATION_HEADER]: client.constants.AUTHORIZATION_SCHEME + " " + access_token,
@@ -382,6 +382,26 @@ app.get("/orderHistory", (req, res) => {
     }
     rq({
         url: client.api.GET_ORDER_HISTORY,
+        method: 'get',
+        headers: {
+            [client.constants.AUTHORIZATION_HEADER]: client.constants.AUTHORIZATION_SCHEME + " " + access_token,
+        },
+        params: request
+    }).then(response => {
+        res.send(JSON.stringify(response.data));
+    }).catch(error => {
+        res.send(error);
+    })
+});
+app.get("/orderBook", (req, res) => {
+    var ro = {};
+    Object.assign(ro, mockStockData);
+    Object.assign(ro, req.query);
+    var request = {
+        account: ro.account
+    }
+    rq({
+        url: client.api.GET_ORDER_BOOK,
         method: 'get',
         headers: {
             [client.constants.AUTHORIZATION_HEADER]: client.constants.AUTHORIZATION_SCHEME + " " + access_token,

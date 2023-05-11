@@ -4,7 +4,7 @@
  * Copyright (c) 2020 SSI
  */
 
-const signalr = require("signalr-client"),
+const signalr = require("./signalR"),
     xmlparser = require("xml-js"),
     node_rsa = require("node-rsa")
 
@@ -16,8 +16,12 @@ var api = {
     NEW_ORDER: "api/v2/Trading/NewOrder",
     MODIFY_ORDER: "api/v2/Trading/ModifyOrder",
     CANCEL_ORDER: "api/v2/Trading/CancelOrder",
+    DER_NEW_ORDER: "api/v2/Trading/derNewOrder",
+    DER_MODIFY_ORDER: "api/v2/Trading/derModifyOrder",
+    DER_CANCEL_ORDER: "api/v2/Trading/derCancelOrder",
     GET_OTP: "/api/v2/Trading/GetOTP",
     GET_ORDER_HISTORY: "api/v2/Trading/orderHistory",
+    GET_ORDER_BOOK: "api/v2/Trading/orderBook",
     GET_DER_POSITION: "api/v2/Trading/derivPosition",
     GET_STOCK_POSITION: "api/v2/Trading/stockPosition",
     GET_MAX_BUY_QUANTITY: "api/v2/Trading/maxBuyQty",
