@@ -4,7 +4,7 @@
  * Copyright (c) 2020 SSI
  */
 
-const signalr = require("signalr-client"),
+const signalr = require("./signalR"),
     xmlparser = require("xml-js"),
     node_rsa = require("node-rsa")
 

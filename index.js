@@ -12,6 +12,7 @@ const axios = require('axios')
 const app = express()
 const port = 3011;
 const rn = require('random-number')
+
 Date.prototype.yyyymmdd = function () {
     var mm = this.getMonth() + 1; // getMonth() is zero-based
     var dd = this.getDate();
@@ -57,7 +58,8 @@ var mockStockData = {
     code: "123456789",
     twoFaType: 0,
     startDate: "24/05/2019",
-    endDate: "30/05/2019"
+    endDate: "30/05/2019",
+    deviceId:"windows-10-ssi"
 };
 var mockDeterativeData = {
     account: "0901358",
@@ -81,7 +83,8 @@ var mockDeterativeData = {
     code : "",
     querySummary: true,
     startDate: "29/08/2019",
-    endDate: "29/08/2019"
+    endDate: "29/08/2019",
+    deviceId:"windows-10-ssi"
 }
 var access_token = "";
 
@@ -205,7 +208,8 @@ app.get("/newOrder", (req, res) => {
         stopStep: 0,
         lossStep: 0,
         profitStep: 0,
-        code: ro.code
+        code: ro.code,
+        deviceId: ro.deviceId
     }
     rq({
         url: client.api.NEW_ORDER,
@@ -241,7 +245,8 @@ app.get("/ttlNewOrder", (req, res) => {
         stopStep: parseFloat(ro.stopstep),
         lossStep: parseFloat(ro.lossstep),
         profitStep: parseFloat(ro.profitstep),
-        code: ro.code
+        code: ro.code,
+        deviceId: ro.deviceId
     }
     rq({
         url: client.api.NEW_ORDER,
