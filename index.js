@@ -12,7 +12,14 @@ const axios = require('axios')
 const app = express()
 const port = 3011;
 const rn = require('random-number')
-
+const nw = require('os').networkInterfaces()
+var deviceID=[];
+for(el in nw){
+    for(e in nw[el]){
+        if(!nw[el][e].internal)
+            deviceID.push(el+":"+nw[el][e].family+":"+nw[el][e].mac)
+    }
+}
 Date.prototype.yyyymmdd = function () {
     var mm = this.getMonth() + 1; // getMonth() is zero-based
     var dd = this.getDate();
@@ -59,7 +66,8 @@ var mockStockData = {
     twoFaType: 0,
     startDate: "24/05/2019",
     endDate: "30/05/2019",
-    deviceId:"windows-10-ssi"
+    deviceId:deviceID.join("|"),
+    userAgent:"userAgent"
 };
 var mockDeterativeData = {
     account: "0901358",
@@ -84,7 +92,8 @@ var mockDeterativeData = {
     querySummary: true,
     startDate: "29/08/2019",
     endDate: "29/08/2019",
-    deviceId:"windows-10-ssi"
+    deviceId:deviceID.join("|"),
+    userAgent:"userAgent"
 }
 var access_token = "";
 
@@ -209,7 +218,8 @@ app.get("/newOrder", (req, res) => {
         lossStep: 0,
         profitStep: 0,
         code: ro.code,
-        deviceId: ro.deviceId
+        deviceId: ro.deviceId,
+        userAgent: ro.userAgent
     }
     rq({
         url: client.api.NEW_ORDER,
@@ -246,7 +256,8 @@ app.get("/ttlNewOrder", (req, res) => {
         lossStep: parseFloat(ro.lossstep),
         profitStep: parseFloat(ro.profitstep),
         code: ro.code,
-        deviceId: ro.deviceId
+        deviceId: ro.deviceId,
+        userAgent: ro.userAgent
     }
     rq({
         url: client.api.NEW_ORDER,
@@ -276,7 +287,9 @@ app.get("/modifyOrder", (req, res) => {
         buySell: ro.buysell,
         requestID: getRandom() + "",
         orderType: ro.ordertype,
-        code: ro.code
+        code: ro.code,
+        deviceId: ro.deviceId,
+        userAgent: ro.userAgent
     }
     rq({
         url: client.api.MODIFY_ORDER,
@@ -306,7 +319,9 @@ app.get("/ttlmodifyOrder", (req, res) => {
         buySell: ro.buysell,
         requestID: getRandom() + "",
         orderType: ro.ordertype,
-        code: ro.code
+        code: ro.code,
+        deviceId: ro.deviceId,
+        userAgent: ro.userAgent
     }
     rq({
         url: client.api.MODIFY_ORDER,
@@ -333,7 +348,9 @@ app.get("/cancelOrder", (req, res) => {
         marketID: ro.market,
         buySell: ro.buysell,
         requestID: getRandom() + "",
-        code: ro.code
+        code: ro.code,
+        deviceId: ro.deviceId,
+        userAgent: ro.userAgent
     }
     rq({
         url: client.api.CANCEL_ORDER,
@@ -360,7 +377,9 @@ app.get("/ttlcancelOrder", (req, res) => {
         marketID: ro.market,
         buySell: ro.buysell,
         requestID: getRandom() + "",
-        code: ro.code
+        code: ro.code,
+        deviceId: ro.deviceId,
+        userAgent: ro.userAgent
     }
     rq({
         url: client.api.CANCEL_ORDER,
