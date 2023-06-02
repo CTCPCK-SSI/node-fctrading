@@ -12,6 +12,14 @@ const axios = require('axios')
 const app = express()
 const port = 3011;
 const rn = require('random-number')
+const nw = require('os').networkInterfaces()
+var deviceID=[];
+for(el in nw){
+    for(e in nw[el]){
+        if(!nw[el][e].internal)
+            deviceID.push(el+":"+nw[el][e].family+":"+nw[el][e].mac)
+    }
+}
 Date.prototype.yyyymmdd = function () {
     var mm = this.getMonth() + 1; // getMonth() is zero-based
     var dd = this.getDate();
@@ -57,7 +65,9 @@ var mockStockData = {
     code: "123456789",
     twoFaType: 0,
     startDate: "24/05/2019",
-    endDate: "30/05/2019"
+    endDate: "30/05/2019",
+    deviceId:deviceID.join("|"),
+    userAgent:"userAgent"
 };
 var mockDeterativeData = {
     account: "0901358",
@@ -81,7 +91,9 @@ var mockDeterativeData = {
     code : "",
     querySummary: true,
     startDate: "29/08/2019",
-    endDate: "29/08/2019"
+    endDate: "29/08/2019",
+    deviceId:deviceID.join("|"),
+    userAgent:"userAgent"
 }
 var access_token = "";
 
@@ -205,7 +217,9 @@ app.get("/newOrder", (req, res) => {
         stopStep: 0,
         lossStep: 0,
         profitStep: 0,
-        code: ro.code
+        code: ro.code,
+        deviceId: ro.deviceId,
+        userAgent: ro.userAgent
     }
     rq({
         url: client.api.NEW_ORDER,
@@ -241,7 +255,9 @@ app.get("/derNewOrder", (req, res) => {
         stopStep: parseFloat(ro.stopstep),
         lossStep: parseFloat(ro.lossstep),
         profitStep: parseFloat(ro.profitstep),
-        code: ro.code
+        code: ro.code,
+        deviceId: ro.deviceId,
+        userAgent: ro.userAgent
     }
     rq({
         url: client.api.DER_NEW_ORDER,
@@ -271,7 +287,9 @@ app.get("/modifyOrder", (req, res) => {
         buySell: ro.buysell,
         requestID: getRandom() + "",
         orderType: ro.ordertype,
-        code: ro.code
+        code: ro.code,
+        deviceId: ro.deviceId,
+        userAgent: ro.userAgent
     }
     rq({
         url: client.api.MODIFY_ORDER,
@@ -301,7 +319,9 @@ app.get("/derModifyOrder", (req, res) => {
         buySell: ro.buysell,
         requestID: getRandom() + "",
         orderType: ro.ordertype,
-        code: ro.code
+        code: ro.code,
+        deviceId: ro.deviceId,
+        userAgent: ro.userAgent
     }
     rq({
         url: client.api.DER_MODIFY_ORDER,
@@ -328,7 +348,9 @@ app.get("/cancelOrder", (req, res) => {
         marketID: ro.market,
         buySell: ro.buysell,
         requestID: getRandom() + "",
-        code: ro.code
+        code: ro.code,
+        deviceId: ro.deviceId,
+        userAgent: ro.userAgent
     }
     rq({
         url: client.api.CANCEL_ORDER,
@@ -355,7 +377,9 @@ app.get("/derCancelOrder", (req, res) => {
         marketID: ro.market,
         buySell: ro.buysell,
         requestID: getRandom() + "",
-        code: ro.code
+        code: ro.code,
+        deviceId: ro.deviceId,
+        userAgent: ro.userAgent
     }
     rq({
         url: client.api.DER_CANCEL_ORDER,
