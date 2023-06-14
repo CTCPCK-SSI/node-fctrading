@@ -27,7 +27,7 @@
           {
               "assets": [
                   "CHANGELOG.md",
-                  "fc-trading.zip"
+                  "dist/**"
               ],
               "message": "chore(release): set `package.json` to ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
           }
