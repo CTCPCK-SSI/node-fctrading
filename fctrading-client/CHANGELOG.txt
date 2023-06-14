@@ -1,0 +1,21 @@
+* 2.0.1
+    - Update streaming event
+* 2.0.0
+    - Compartial with API v2 FCTrading
+* 1.0.11
+	- Add onError event
+* 1.0.10
+	- Add more infomation account balance response
+	- Add new status PAS - StopOrder pending approval
+* 1.0.9
+	- Add stoporder and login api
+* 1.0.8
+	- Remove connectionid property and add prefix property in all event.
+* 1.0.7
+	- Fix required type in library
+* 1.0.6
+	- Change property of event portofilo to number.
+* 1.0.5
+	- Add PurchasingPower property to MaxBuyQtyResponse.
+* 1.0.4
+	- Change price in MaxBuyQtyRequest and MaxSellQtyRequest to double.
