@@ -1,5 +1,12 @@
 # FCTrading NodeJS Client Changelog
 
+## [1.1.1](https://github.com/SSI-Securities-Corporation/node-fctrading/compare/v1.1.0...v1.1.1) (2023-06-15)
+
+
+### Bug Fixes
+
+* edit releaserc ([d85e932](https://github.com/SSI-Securities-Corporation/node-fctrading/commit/d85e932f4d65c8c561bc46a187612efca28f8216))
+
 # [1.1.0](https://github.com/SSI-Securities-Corporation/node-fctrading/compare/v1.0.0...v1.1.0) (2023-06-15)
 
 
