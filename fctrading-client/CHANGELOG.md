@@ -1,5 +1,12 @@
 # FCTrading NodeJS Client Changelog
 
+# [1.1.0](https://github.com/SSI-Securities-Corporation/node-fctrading/compare/v1.0.0...v1.1.0) (2023-06-15)
+
+
+### Features
+
+* add badge status ([08ce909](https://github.com/SSI-Securities-Corporation/node-fctrading/commit/08ce909db6e4e46f82fdfa76b8d2ffea305a0e05))
+
 # 1.0.0 (2023-06-15)
 
 
