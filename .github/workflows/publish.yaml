@@ -17,16 +17,26 @@ jobs:
       - run: git config --global user.email "ci-bot@ssi.com.vn"
       - run: git config --global user.name "SSI"
 
+      - name: Archive Release
+        uses: thedoctor0/zip-release@0.7.1
+        with:
+          type: "zip"
+          filename: "fc-trading.zip"
+          exclusions: "*.git* /*node_modules/* .editorconfig /*.github/*"
+
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
           registry-url: https://registry.npmjs.org/
 
       - name: Install dependencies
         run: CI=true npm install
+        working-directory: ./fctrading-client
 
       - name: Install semantic-release extra plugins
         run: npm install --no-save @semantic-release/changelog @semantic-release/git
+        working-directory: ./fctrading-client
 
       - name: Semantic Release
         run: npx semantic-release
+        working-directory: ./fctrading-client

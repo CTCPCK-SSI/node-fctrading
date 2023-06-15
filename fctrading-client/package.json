@@ -1,6 +1,6 @@
 {
   "name": "fctrading-client",
-  "version": "2.3.0",
+  "version": "1.0.0",
   "description": "This is javascript client for FastConnect TradingAPI",
   "main": "index.js",
   "author": "ssi",
