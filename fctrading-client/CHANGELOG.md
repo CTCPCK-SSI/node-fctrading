@@ -1,5 +1,17 @@
 # FCTrading NodeJS Client Changelog
 
+# [2.0.0](https://github.com/SSI-Securities-Corporation/node-fctrading/compare/v1.1.1...v2.0.0) (2023-06-16)
+
+
+### Bug Fixes
+
+* default value userAgent ([031b2ec](https://github.com/SSI-Securities-Corporation/node-fctrading/commit/031b2ec57dbb7d5d98e52908d4a5fd9a36bb536c))
+
+
+### BREAKING CHANGES
+
+* remove v1 protobuf version
+
 ## [1.1.1](https://github.com/SSI-Securities-Corporation/node-fctrading/compare/v1.1.0...v1.1.1) (2023-06-15)
 
 
