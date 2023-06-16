@@ -86,7 +86,9 @@ rq({
 ```
 
 #### Order
-To place new order or modify, cancel order you need verify PIN or OTP when get accessToken 
+To place new order or modify, cancel order you need verify PIN or OTP when get accessToken.
+If you use OTP, please get it before call accessToken:
+ 
 ## Streaming Data
 ``` python
 # import ssi_fc_data
