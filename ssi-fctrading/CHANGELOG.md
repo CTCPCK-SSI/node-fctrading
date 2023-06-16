@@ -1,5 +1,12 @@
 # FCTrading NodeJS Client Changelog
 
+# [2.2.0](https://github.com/SSI-Securities-Corporation/node-fctrading/compare/v2.1.0...v2.2.0) (2023-06-16)
+
+
+### Features
+
+* change folder to same with node module ([29ef57b](https://github.com/SSI-Securities-Corporation/node-fctrading/commit/29ef57b1f058647e1ac435b730e0c3ac38b95b2a))
+
 # [2.1.0](https://github.com/SSI-Securities-Corporation/node-fctrading/compare/v2.0.0...v2.1.0) (2023-06-16)
 
 
