@@ -6,7 +6,7 @@
 
 /** @START_CONFIG */
 const express = require('express')
-const client = require('fctrading-client');
+const client = require('ssi-fctrading');
 const axios = require('axios')
 
 const app = express()
