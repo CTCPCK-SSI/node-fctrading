@@ -67,7 +67,7 @@ var mockStockData = {
     startDate: "24/05/2019",
     endDate: "30/05/2019",
     deviceId:deviceID.join("|"),
-    userAgent:"userAgent"
+    userAgent:"FCTrading"
 };
 var mockDeterativeData = {
     account: "0901358",
@@ -93,7 +93,7 @@ var mockDeterativeData = {
     startDate: "29/08/2019",
     endDate: "29/08/2019",
     deviceId:deviceID.join("|"),
-    userAgent:"userAgent"
+    userAgent:"FCTrading"
 }
 var access_token = "";
 
