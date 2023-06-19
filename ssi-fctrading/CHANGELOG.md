@@ -1,5 +1,14 @@
 # FCTrading NodeJS Client Changelog
 
+# [2.3.0](https://github.com/SSI-Securities-Corporation/node-fctrading/compare/v2.2.0...v2.3.0) (2023-06-19)
+
+
+### Features
+
+* update readme ([f54c972](https://github.com/SSI-Securities-Corporation/node-fctrading/commit/f54c972de065911eaf648402f2cb2f023cc637da))
+* update readme ([d81a832](https://github.com/SSI-Securities-Corporation/node-fctrading/commit/d81a832b0564bef585be48f08c6905e32341c962))
+* update readme ([f943e24](https://github.com/SSI-Securities-Corporation/node-fctrading/commit/f943e24f31f472619fad813dbc2603ec0b208c47))
+
 # [2.2.0](https://github.com/SSI-Securities-Corporation/node-fctrading/compare/v2.1.0...v2.2.0) (2023-06-16)
 
 
