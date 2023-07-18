@@ -1,5 +1,12 @@
 # FCTrading NodeJS Client Changelog
 
+# [2.4.0](https://github.com/SSI-Securities-Corporation/node-fctrading/compare/v2.3.0...v2.4.0) (2023-07-18)
+
+
+### Features
+
+* new api auditorderbook ([60b3c8b](https://github.com/SSI-Securities-Corporation/node-fctrading/commit/60b3c8b42493ae7315a2aec411bcab56d380b22d))
+
 # [2.3.0](https://github.com/SSI-Securities-Corporation/node-fctrading/compare/v2.2.0...v2.3.0) (2023-06-19)
 
 
