@@ -437,6 +437,26 @@ app.get("/orderBook", (req, res) => {
         res.send(error);
     })
 });
+app.get("/auditOrderBook", (req, res) => {
+    var ro = {};
+    Object.assign(ro, mockStockData);
+    Object.assign(ro, req.query);
+    var request = {
+        account: ro.account
+    }
+    rq({
+        url: client.api.GET_AUDIT_ORDER_BOOK,
+        method: 'get',
+        headers: {
+            [client.constants.AUTHORIZATION_HEADER]: client.constants.AUTHORIZATION_SCHEME + " " + access_token,
+        },
+        params: request
+    }).then(response => {
+        res.send(JSON.stringify(response.data));
+    }).catch(error => {
+        res.send(error);
+    })
+});
 app.get("/ttlorderHistory", (req, res) => {
     var ro = {};
     Object.assign(ro, mockDeterativeData);

@@ -22,6 +22,7 @@ var api = {
     GET_OTP: "/api/v2/Trading/GetOTP",
     GET_ORDER_HISTORY: "api/v2/Trading/orderHistory",
     GET_ORDER_BOOK: "api/v2/Trading/orderBook",
+    GET_AUDIT_ORDER_BOOK: "api/v2/Trading/auditOrderBook",
     GET_DER_POSITION: "api/v2/Trading/derivPosition",
     GET_STOCK_POSITION: "api/v2/Trading/stockPosition",
     GET_MAX_BUY_QUANTITY: "api/v2/Trading/maxBuyQty",
