@@ -1,5 +1,12 @@
 # FCTrading NodeJS Client Changelog
 
+## [2.4.1](https://github.com/SSI-Securities-Corporation/node-fctrading/compare/v2.4.0...v2.4.1) (2023-08-09)
+
+
+### Bug Fixes
+
+* normalize deviceid and user agent ([bb81194](https://github.com/SSI-Securities-Corporation/node-fctrading/commit/bb81194aee1c3830a272793af72db188f4a8f5c1))
+
 # [2.4.0](https://github.com/SSI-Securities-Corporation/node-fctrading/compare/v2.3.0...v2.4.0) (2023-07-18)
 
 
