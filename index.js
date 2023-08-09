@@ -12,14 +12,7 @@ const axios = require('axios')
 const app = express()
 const port = 3011;
 const rn = require('random-number')
-const nw = require('os').networkInterfaces()
-var deviceID=[];
-for(el in nw){
-    for(e in nw[el]){
-        if(!nw[el][e].internal)
-            deviceID.push(el+":"+nw[el][e].family+":"+nw[el][e].mac)
-    }
-}
+
 Date.prototype.yyyymmdd = function () {
     var mm = this.getMonth() + 1; // getMonth() is zero-based
     var dd = this.getDate();
@@ -34,7 +27,6 @@ function parseBool(str) {
     return str === 'true' || str === true;
 }
 var date = new Date();
-
 //This is config for consumer have permission on all customer
 var config = {
     ConsumerID: "",
@@ -66,8 +58,8 @@ var mockStockData = {
     twoFaType: 0,
     startDate: "24/05/2019",
     endDate: "30/05/2019",
-    deviceId:deviceID.join("|"),
-    userAgent:"FCTrading"
+    deviceId: client.getDeviceId(),
+    userAgent: client.getUserAgent()
 };
 var mockDeterativeData = {
     account: "0901358",
@@ -92,8 +84,8 @@ var mockDeterativeData = {
     querySummary: true,
     startDate: "29/08/2019",
     endDate: "29/08/2019",
-    deviceId:deviceID.join("|"),
-    userAgent:"FCTrading"
+    deviceId: client.getDeviceId(),
+    userAgent: client.getUserAgent()
 }
 var access_token = "";
 

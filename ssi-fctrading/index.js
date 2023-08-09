@@ -6,11 +6,13 @@
 
 const signalr = require("./signalR"),
     xmlparser = require("xml-js"),
-    node_rsa = require("node-rsa")
-
+    node_rsa = require("node-rsa"),
+    nw = require('os').networkInterfaces(),
+    os = require('os');
 function addSlash(str) {
     return str.substr(-1) !== "/" ? (str + "/") : str
 }
+
 var api = {
     GET_ACCESS_TOKEN: "api/v2/Trading/AccessToken",
     NEW_ORDER: "api/v2/Trading/NewOrder",
@@ -111,6 +113,30 @@ exports.bind = function (event, func) {
 exports.unbind = function (event, func) {
     //eventsListener.removeListener(event, func);
     delete client._eventsListener[event];
+}
+/**
+ * Get deviceid for order
+ * @returns {string} deviceID with format xx:xx:xx:xx:xx:xx
+ */
+exports.getDeviceId = function(){
+    let rs = []
+    for(el in nw){
+        for(e in nw[el]){
+            if(!nw[el][e].internal && nw[el][e].family === 'IPv4')
+                rs.push( el +":"+ nw[el][e].mac)
+        }
+    }
+    return rs.join("|")
+}
+/**
+ * Get user-agent for order
+ * @returns {string} user-agent as string
+ */
+exports.getUserAgent = function(){
+    let node_v = process.version;
+    let name = os.version();
+    let a=os.release();
+    return `NodeJS/${node_v} (${name} ${a}); ssi-fctrading/${require('./package.json').version}`
 }
 /**
  * Sign data with private key
