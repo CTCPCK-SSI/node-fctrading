@@ -1,6 +1,6 @@
 {
   "name": "fctrading-client-ex",
-  "version": "2.3.0",
+  "version": "2.5.0",
   "description": "Example using fctrading-client-js",
   "main": "index.js",
   "scripts": {
@@ -12,7 +12,11 @@
   "dependencies": {
     "axios": "0.27.2",
     "express": "^4.17.0",
-    "ssi-fctrading": "^2.4.1",
-    "random-number": "0.0.9"
+    "random-number": "0.0.9",
+    "ssi-fctrading": "file:ssi-fctrading",
+    "swagger-ui-express": "^5.0.0"
+  },
+  "devDependencies": {
+    "swagger-autogen": "^2.23.5"
   }
 }

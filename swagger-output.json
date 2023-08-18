@@ -1,0 +1,1238 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "2.5.0",
+    "title": "FCTrading API client example",
+    "description": "Example for test eassssy"
+  },
+  "host": "localhost:3011",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/getOtp": {
+      "get": {
+        "tags": [
+          "AUTH"
+        ],
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/verifyCode": {
+      "get": {
+        "tags": [
+          "AUTH"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "twoFaType",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "code",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/newOrder": {
+      "get": {
+        "tags": [
+          "ORDER"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "account",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "requestID",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "instrumentID",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "market",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "buySell",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "orderType",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "price",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "quantity",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "stopOrder",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "stopPrice",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "stopType",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "stopStep",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "lossStep",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "profitStep",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "channelID",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "code",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "deviceId",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "userAgent",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/derNewOrder": {
+      "get": {
+        "tags": [
+          "ORDER"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "account",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "requestID",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "instrumentID",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "market",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "buySell",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "orderType",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "price",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "quantity",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "stopOrder",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "stopPrice",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "stopType",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "stopStep",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "lossStep",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "profitStep",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "channelID",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "code",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "deviceId",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "userAgent",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/modifyOrder": {
+      "get": {
+        "tags": [
+          "ORDER"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "account",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "orderid",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "market",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "instrumentid",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "price",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "quantity",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "buysell",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "orderType",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "code",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "deviceId",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "userAgent",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/derModifyOrder": {
+      "get": {
+        "tags": [
+          "ORDER"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "account",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "orderid",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "market",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "instrumentid",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "price",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "quantity",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "buysell",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "orderType",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "code",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "deviceId",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "userAgent",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/cancelOrder": {
+      "get": {
+        "tags": [
+          "ORDER"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "orderid",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "account",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "instrumentid",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "market",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "buysell",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "requestID",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "code",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "deviceId",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "userAgent",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/derCancelOrder": {
+      "get": {
+        "tags": [
+          "ORDER"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "orderid",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "account",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "instrumentid",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "market",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "buysell",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "requestID",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "code",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "deviceId",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "userAgent",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/orderHistory": {
+      "get": {
+        "tags": [
+          "QUERY"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "account",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "startDate",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "endDate",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/orderBook": {
+      "get": {
+        "tags": [
+          "QUERY"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "account",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/auditOrderBook": {
+      "get": {
+        "tags": [
+          "QUERY"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "account",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/ttlorderHistory": {
+      "get": {
+        "tags": [
+          "QUERY"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "account",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "startDate",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "endDate",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/derPosition": {
+      "get": {
+        "tags": [
+          "QUERY"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "account",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "querySummary",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/stockPosition": {
+      "get": {
+        "tags": [
+          "QUERY"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "account",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/maxBuyQty": {
+      "get": {
+        "tags": [
+          "QUERY"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "account",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "instrumentID",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "price",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/ttlmaxBuyQty": {
+      "get": {
+        "tags": [
+          "QUERY"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "account",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "instrumentID",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "price",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/maxSellQty": {
+      "get": {
+        "tags": [
+          "QUERY"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "account",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "instrumentID",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/ttlmaxSellQty": {
+      "get": {
+        "tags": [
+          "QUERY"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "account",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "instrumentID",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "price",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/accountBalance": {
+      "get": {
+        "tags": [
+          "QUERY"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "account",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/derAccountBalance": {
+      "get": {
+        "tags": [
+          "QUERY"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "account",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/ppmmraccount": {
+      "get": {
+        "tags": [
+          "QUERY"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "account",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/cashInAdvanceAmount": {
+      "get": {
+        "tags": [
+          "CASH"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "account",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/unsettleSoldTransaction": {
+      "get": {
+        "tags": [
+          "CASH"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "account",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "settleDate",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/transferHistories": {
+      "get": {
+        "tags": [
+          "CASH"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "account",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "startDate",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "endDate",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/cashInAdvanceHistories": {
+      "get": {
+        "tags": [
+          "CASH"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "account",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "startDate",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "endDate",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/estCashInAdvanceFee": {
+      "get": {
+        "tags": [
+          "CASH"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "account",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "ciaAmount",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "receiveAmount",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/vsdCashDW": {
+      "get": {
+        "tags": [
+          "CASH"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "account",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "amount",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "remark",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/transferInternal": {
+      "get": {
+        "tags": [
+          "CASH"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "account",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "beneficiaryAccount",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "amount",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "remark",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/createCashInAdvance": {
+      "get": {
+        "tags": [
+          "CASH"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "account",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "ciaAmount",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "receiveAmount",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/ors/dividend": {
+      "get": {
+        "tags": [
+          "RIGHT"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "account",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/ors/exercisableQuantity": {
+      "get": {
+        "tags": [
+          "RIGHT"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "account",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/ors/histories": {
+      "get": {
+        "tags": [
+          "RIGHT"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "account",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "startDate",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "endDate",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/ors/create": {
+      "get": {
+        "tags": [
+          "STOCK"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "account",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "beneficiaryAccount",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "exchangeID",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "instrumentID",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "quantity",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/stock/transferable": {
+      "get": {
+        "tags": [
+          "STOCK"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "account",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/stock/transferHistories": {
+      "get": {
+        "tags": [
+          "STOCK"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "account",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "startDate",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "endDate",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  }
+}
