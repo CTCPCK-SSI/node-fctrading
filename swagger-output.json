@@ -272,6 +272,11 @@
             "type": "string"
           },
           {
+            "name": "requestID",
+            "in": "query",
+            "type": "string"
+          },
+          {
             "name": "orderid",
             "in": "query",
             "type": "string"
@@ -1147,7 +1152,7 @@
     "/ors/create": {
       "get": {
         "tags": [
-          "STOCK"
+          "RIGHT"
         ],
         "description": "",
         "parameters": [
@@ -1157,22 +1162,22 @@
             "type": "string"
           },
           {
-            "name": "beneficiaryAccount",
-            "in": "query",
-            "type": "string"
-          },
-          {
-            "name": "exchangeID",
-            "in": "query",
-            "type": "string"
-          },
-          {
             "name": "instrumentID",
             "in": "query",
             "type": "string"
           },
           {
+            "name": "entitlementID",
+            "in": "query",
+            "type": "string"
+          },
+          {
             "name": "quantity",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "amount",
             "in": "query",
             "type": "string"
           }
@@ -1223,6 +1228,46 @@
           },
           {
             "name": "endDate",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/stock/create": {
+      "get": {
+        "tags": [
+          "STOCK"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "account",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "beneficiaryAccount",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "exchangeID",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "instrumentID",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "quantity",
             "in": "query",
             "type": "string"
           }

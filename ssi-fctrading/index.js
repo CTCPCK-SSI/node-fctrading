@@ -221,12 +221,12 @@ class FCTradingClient {
     }
 
     post(url, obj, onSuccess, onError) {
-        _rq({
+        this._rq({
             url: url,
             method: 'post',
             headers: {
-                [client.constants.AUTHORIZATION_HEADER]: constants.AUTHORIZATION_SCHEME + " " + this._accessToken,
-                [client.constants.SIGNATURE_HEADER]: exports.sign(JSON.stringify(obj), config.PrivateKey)
+                [constants.AUTHORIZATION_HEADER]: constants.AUTHORIZATION_SCHEME + " " + this._accessToken,
+                [constants.SIGNATURE_HEADER]: exports.sign(JSON.stringify(obj), this._config.PrivateKey)
             },
             data: obj
         }).then(response => {
@@ -235,11 +235,11 @@ class FCTradingClient {
         }, reason => onError(reason))
     }
     get(url, obj, onSuccess, onError) {
-        _rq({
+        this._rq({
             url: url,
-            method: 'post',
+            method: 'get',
             headers: {
-                [client.constants.AUTHORIZATION_HEADER]: constants.AUTHORIZATION_SCHEME + " " + this._accessToken
+                [constants.AUTHORIZATION_HEADER]: constants.AUTHORIZATION_SCHEME + " " + this._accessToken
             },
             params: obj
         }).then(response => {
