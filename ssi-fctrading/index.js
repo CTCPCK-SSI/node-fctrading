@@ -39,6 +39,7 @@ var api = {
     GET_ACCOUNT_BALANCE: "api/v2/Trading/cashAcctBal",
     GET_DER_ACCOUNT_BALANCE: "api/v2/Trading/derivAcctBal",
     GET_PPMMRACCOUNT: "api/v2/Trading/ppmmraccount",
+    GET_RATELIMIT: "api/v2/Trading/rateLimit",
     SIGNALR: "v2.0/signalr",
     //CASH
     FC_CASH_CIA_AMOUNT: "api/v2/cash/cashInAdvanceAmount",

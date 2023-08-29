@@ -395,6 +395,11 @@ app.get("/ppmmraccount", (req, res) => {
     var request = new client.models.PPMMRAccount(req.query.account ?? ro.account)
     fcclient.get(client.api.GET_PPMMRACCOUNT, request, data => res.send(JSON.stringify(data)), err=> res.send(err))
 });
+app.get("/rateLimit", (req, res) => {
+    // #swagger.tags = ['QUERY']
+    
+    fcclient.get(client.api.GET_RATELIMIT, null, data => res.send(JSON.stringify(data)), err=> res.send(err))
+});
 app.get("/cashInAdvanceAmount", (req, res) => {
     // #swagger.tags = ['CASH']
     var ro = {};

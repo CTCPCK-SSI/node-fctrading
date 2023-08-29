@@ -272,11 +272,6 @@
             "type": "string"
           },
           {
-            "name": "requestID",
-            "in": "query",
-            "type": "string"
-          },
-          {
             "name": "orderid",
             "in": "query",
             "type": "string"
@@ -844,6 +839,19 @@
         }
       }
     },
+    "/rateLimit": {
+      "get": {
+        "tags": [
+          "QUERY"
+        ],
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/cashInAdvanceAmount": {
       "get": {
         "tags": [
@@ -1239,7 +1247,7 @@
         }
       }
     },
-    "/stock/create": {
+    "/stock/transfer": {
       "get": {
         "tags": [
           "STOCK"
