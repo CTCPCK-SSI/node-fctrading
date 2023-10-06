@@ -1013,6 +1013,11 @@
             "name": "remark",
             "in": "query",
             "type": "string"
+          },
+          {
+            "name": "code",
+            "in": "query",
+            "type": "string"
           }
         ],
         "responses": {
@@ -1048,6 +1053,11 @@
             "name": "remark",
             "in": "query",
             "type": "string"
+          },
+          {
+            "name": "code",
+            "in": "query",
+            "type": "string"
           }
         ],
         "responses": {
@@ -1076,6 +1086,11 @@
           },
           {
             "name": "receiveAmount",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "code",
             "in": "query",
             "type": "string"
           }
@@ -1188,6 +1203,11 @@
             "name": "amount",
             "in": "query",
             "type": "string"
+          },
+          {
+            "name": "code",
+            "in": "query",
+            "type": "string"
           }
         ],
         "responses": {
@@ -1276,6 +1296,11 @@
           },
           {
             "name": "quantity",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "code",
             "in": "query",
             "type": "string"
           }

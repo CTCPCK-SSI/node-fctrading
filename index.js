@@ -441,21 +441,21 @@ app.get("/vsdCashDW", (req, res) => {
     // #swagger.tags = ['CASH']
     var ro = {};
     Object.assign(ro, mockStockData);
-    var request = new client.models.CashTransferVSD(req.query.account ?? ro.account, req.query.amount ?? ro.amount,req.query.type ?? ro.type, req.query.remark ?? ro.remark)
+    var request = new client.models.CashTransferVSD(req.query.account ?? ro.account, req.query.amount ?? ro.amount,req.query.type ?? ro.type, req.query.remark ?? ro.remark, req.query.code ?? ro.code)
     fcclient.post(client.api.FC_CASH_VSD_DW, request, data => res.send(data), err=> res.send(err))
 });
 app.get("/transferInternal", (req, res) => {
     // #swagger.tags = ['CASH']
     var ro = {};
     Object.assign(ro, mockStockData);
-    var request = new client.models.CashTransfer(req.query.account ?? ro.account, req.query.beneficiaryAccount ?? ro.beneficiaryAccount,req.query.amount ?? ro.amount, req.query.remark ?? ro.remark)
+    var request = new client.models.CashTransfer(req.query.account ?? ro.account, req.query.beneficiaryAccount ?? ro.beneficiaryAccount,req.query.amount ?? ro.amount, req.query.remark ?? ro.remark, req.query.code ?? ro.code)
     fcclient.post(client.api.FC_CASH_TRANSFER, request, data => res.send(data), err=> res.send(err))
 });
 app.get("/createCashInAdvance", (req, res) => {
     // #swagger.tags = ['CASH']
     var ro = {};
     Object.assign(ro, mockStockData);
-    var request = new client.models.CashCIA(req.query.account ?? ro.account, req.query.ciaAmount ?? ro.ciaAmount,req.query.receiveAmount ?? ro.receiveAmount)
+    var request = new client.models.CashCIA(req.query.account ?? ro.account, req.query.ciaAmount ?? ro.ciaAmount,req.query.receiveAmount ?? ro.receiveAmount, req.query.code ?? ro.code)
     fcclient.post(client.api.FC_CASH_CIA, request, data => res.send(data), err=> res.send(err))
 });
 app.get("/ors/dividend", (req, res) => {
@@ -484,7 +484,7 @@ app.get("/ors/create", (req, res) => {
     // #swagger.tags = ['RIGHT']
     var ro = {};
     Object.assign(ro, mockStockData);
-    var request = new client.models.Ors(req.query.account ?? ro.account, req.query.instrumentID ?? ro.instrumentID,req.query.entitlementID ?? ro.entitlementID, req.query.quantity ?? ro.quantity,  req.query.amount ?? ro.amount)
+    var request = new client.models.Ors(req.query.account ?? ro.account, req.query.instrumentID ?? ro.instrumentID,req.query.entitlementID ?? ro.entitlementID, req.query.quantity ?? ro.quantity,  req.query.amount ?? ro.amount, req.query.code ?? ro.code)
     fcclient.post(client.api.FC_ORS, request, data => res.send(data), err=> res.send(err))
 });
 app.get("/stock/transferable", (req, res) => {
@@ -505,7 +505,7 @@ app.get("/stock/transfer", (req, res) => {
     // #swagger.tags = ['STOCK']
     var ro = {};
     Object.assign(ro, mockStockData);
-    var request = new client.models.StockTransfer(req.query.account ?? ro.account, req.query.beneficiaryAccount ?? ro.beneficiaryAccount,req.query.exchangeID ?? ro.exchangeID, req.query.instrumentID ?? ro.instrumentID,  req.query.quantity ?? ro.quantity)
+    var request = new client.models.StockTransfer(req.query.account ?? ro.account, req.query.beneficiaryAccount ?? ro.beneficiaryAccount,req.query.exchangeID ?? ro.exchangeID, req.query.instrumentID ?? ro.instrumentID,  req.query.quantity ?? ro.quantity, req.query.code ?? ro.code)
     fcclient.post(client.api.FC_STOCK_TRANSFER, request, data => res.send(data), err=> res.send(err))
 });
 const swaggerAutogen = require('swagger-autogen')();

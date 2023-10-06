@@ -113,22 +113,25 @@ module.exports = {
         this.ciaAmount = ciaAmount
         this.receiveAmount = receiveAmount
     },
-    CashTransferVSD: function (account, amount, type, remark) {
+    CashTransferVSD: function (account, amount, type, remark, code) {
         this.account = account
         this.amount = amount
         this.type = type
         this.remark = remark
+        this.code = code
     },
-    CashTransfer: function (account, beneficiaryAccount, amount, remark) {
+    CashTransfer: function (account, beneficiaryAccount, amount, remark, code) {
         this.account = account
         this.beneficiaryAccount = beneficiaryAccount
         this.amount = amount
         this.remark = remark
+        this.code = code
     },
-    CashCIA: function (account, ciaAmount, receiveAmount) {
+    CashCIA: function (account, ciaAmount, receiveAmount, code) {
         this.account = account
         this.ciaAmount = ciaAmount
         this.receiveAmount = receiveAmount
+        this.code = code
     },
     OrsDividend: function (account) {
         this.account = account
@@ -141,12 +144,13 @@ module.exports = {
         this.startDate = startDate
         this.endDate = endDate
     },
-    Ors: function (account, instrumentID, entitlementID, quantity, amount) {
+    Ors: function (account, instrumentID, entitlementID, quantity, amount, code) {
         this.account = account
         this.instrumentID = instrumentID
         this.entitlementID = entitlementID
         this.quantity = quantity
         this.amount = amount
+        this.code = code
     },
     StockTransferable: function (account) {
         this.account = account
@@ -156,11 +160,12 @@ module.exports = {
         this.startDate = startDate
         this.endDate = endDate
     },
-    StockTransfer: function (account, beneficiaryAccount, exchangeID, instrumentID, quantity) {
+    StockTransfer: function (account, beneficiaryAccount, exchangeID, instrumentID, quantity, code) {
         this.account = account
         this.beneficiaryAccount = beneficiaryAccount
         this.exchangeID = exchangeID
         this.instrumentID = instrumentID
         this.quantity = quantity
+        this.code = code
     }
 }
