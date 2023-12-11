@@ -13,7 +13,7 @@
     "axios": "0.27.2",
     "express": "^4.17.0",
     "random-number": "0.0.9",
-    "ssi-fctrading": "file:ssi-fctrading",
+    "ssi-fctrading": "^2.5.0",
     "swagger-ui-express": "^5.0.0"
   },
   "devDependencies": {
