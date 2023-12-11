@@ -138,7 +138,7 @@ var getRandom = rn.generator({
 app.get("/getOtp", (req, res) => {
     // #swagger.tags = ['AUTH']
     var request = new client.models.GetOTP(config.ConsumerID, config.ConsumerSecret)
-    fcclient.get(client.api.GET_OTP, request, data => res.send(JSON.stringify(data)), err=> res.send(err))
+    fcclient.post(client.api.GET_OTP, request, data => res.send(JSON.stringify(data)), err=> res.send(err))
 });
 app.get("/verifyCode", (req, res) => {
     // #swagger.tags = ['AUTH']
